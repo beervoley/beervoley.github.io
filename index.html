@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    canvas {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    }
+</style>
+</head>
+
+<script id="vertex-shader" type="x-shader/x-vertex">
+
+attribute vec4 vPosition;
+attribute vec4 vColor;
+
+varying vec4 blockColor;
+
+void
+main()
+{
+    blockColor = vColor;
+    gl_PointSize = 45.0;
+    gl_Position = vPosition;
+}
+</script>
+
+<script id="fragment-shader" type="x-shader/x-fragment">
+precision mediump float;
+varying vec4 blockColor;
+uniform vec4 fColor;
+
+void
+main()
+{
+    gl_FragColor = blockColor;
+}
+</script>
+
+<script type="text/javascript" src="WebGL/webgl-utils.js"></script>
+<script type="text/javascript" src="WebGL/initShaders.js"></script>
+<script type="text/javascript" src="WebGL/MV.js"></script>
+<script type="text/javascript" src="window.js"></script>
+<script type="text/javascript" src="shapes.js"></script>
+<script type="text/javascript" src="gameManager.js"></script>
+<script type="text/javascript" src="main.js"></script>
+
+<body>
+
+        <canvas id="gl-canvas" width="512" height="1024">>
+            Oops ... your browser doesn't support the HTML5 canvas element
+        </canvas>
+    
+</body>
+</html>

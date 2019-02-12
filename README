@@ -1,0 +1,4 @@
+Help used:
+   https://gamedevelopment.tutsplus.com/tutorials/implementing-tetris-clearing-lines--gamedev-1197 - This tutorial gave me a hint on how to implement line clearance logic.
+
+If you want to change the speed of block falling down - go into gameManager.js and find variable GameManager.defaultTimeout - change it to your desired interval in ms.
