@@ -26,7 +26,7 @@ GameWindow.prototype.initializeWebGL = function() {
     this.gl.useProgram( this.program );
 
     this.gl.clearColor(1, 1, 1, 1.0);
-
+    this.gl.clear(this.gl.COLOR_BUFFER_BIT);
     this.vBuffer = this.gl.createBuffer();
 
     this.gl.bindBuffer(this.gl.ARRAY_BUFFER, this.vBuffer);
@@ -89,7 +89,12 @@ GameWindow.prototype.createGrid = function(width, height) {
     for(var i = 0; i < height; i++) {
         this.vertices[i] = new Array(width);
         for(var j = 0; j < width; j++) {
-            this.vertices[i][j] = vec4(-half + (j * stepH), half - i * stepV, 0, 1);
+            if(j == 4) {
+                this.vertices[i][j] = vec4(-half + (j * stepH), half - i * stepV, 0, 1);
+            }
+            else {
+                this.vertices[i][j] = vec4(-half + (j * stepH), half - i * stepV, 0, 1);
+            }
         }
     }
     return this.vertices;

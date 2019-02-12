@@ -14,7 +14,7 @@ Shape.colors = {
     BLACK: 4,
     properties: {
         0 : {name: "red", value: vec4(1.0, 0.0, 0.0, 1.0)},
-        1 : {name: "yellow", value: vec4(1.0, 1.0, 0.0, 1.0)},
+        1 : {name: "yellow", value: vec4(1.0, 0.5, 0.0, 1.0)},
         2 : {name: "blue", value: vec4(0.0, 0.0, 1.0, 1.0)},
         3 : {name: "green", value:  vec4(0.0, 1.0, 0.0, 1.0)},
         4 : {name: "black", value:  vec4(0.0, 0.0, 0.0, 1.0)}

@@ -1,4 +1,4 @@
-var Callbacks = {
+    var Callbacks = {
     UP: 38,
     DOWN: 40,
     LEFT: 37,
