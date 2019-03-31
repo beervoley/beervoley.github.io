@@ -298,6 +298,7 @@ function mult( u, v )
                 result[i].push( sum );
             }
         }
+        //console.log(result);
 
         result.matrix = true;
 
@@ -311,7 +312,6 @@ function mult( u, v )
         for ( var i = 0; i < u.length; ++i ) {
             result.push( u[i] * v[i] );
         }
-
         return result;
     }
 }

@@ -9,22 +9,65 @@
     margin-right: auto;
     display: block;
     }
+    .slidecontainer {
+  width: 100%; /* Width of the outside container */
+}
+
+/* The slider itself */
+.slider {
+  -webkit-appearance: none;  /* Override default CSS styles */
+  appearance: none;
+  width: 50%; /* Full-width */
+  height: 25px; /* Specified height */
+  background: #d3d3d3; /* Grey background */
+  outline: none; /* Remove outline */
+  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+}
+
+/* Mouse-over effects */
+.slider:hover {
+  opacity: 1; /* Fully shown on mouse-over */
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */ 
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #4CAF50; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+
+.slider::-moz-range-thumb {
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #4CAF50; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
 </style>
 </head>
 
 <script id="vertex-shader" type="x-shader/x-vertex">
 
-attribute vec4 vPosition;
-attribute vec4 vColor;
+attribute vec3 vPosition;
+//attribute vec4 vColor;
+
+uniform vec4 vColor;
+uniform mat4 modelViewMatrix;
+
+uniform mat4 projectionMatrix;
+
 
 varying vec4 blockColor;
 
 void
 main()
 {
+    gl_Position = projectionMatrix * modelViewMatrix * vec4(vPosition, 1.0);
     blockColor = vColor;
-    gl_PointSize = 22.4;
-    gl_Position = vPosition;
 }
 </script>
 
@@ -43,16 +86,26 @@ main()
 <script type="text/javascript" src="WebGL/webgl-utils.js"></script>
 <script type="text/javascript" src="WebGL/initShaders.js"></script>
 <script type="text/javascript" src="WebGL/MV.js"></script>
-<script type="text/javascript" src="window.js"></script>
 <script type="text/javascript" src="shapes.js"></script>
-<script type="text/javascript" src="gameManager.js"></script>
 <script type="text/javascript" src="main.js"></script>
 
 <body>
 
-        <canvas id="gl-canvas" width="256" height="512">>
+        <canvas id="gl-canvas" width="128" height="256">>
             Oops ... your browser doesn't support the HTML5 canvas element
         </canvas>
-    
+        <div class="slidecontainer" width = "100">
+            <input type="range" min="1" max="100" value="0" class="slider" id="base">
+          </div>
+          <div class="slidecontainer" width = "100">
+            <input type="range" min="1" max="100" value="0" class="slider" id="lower">
+          </div>
+          
+          <div class="slidecontainer" width = "100">
+            <input type="range" min="1" max="100" value="0" class="slider" id="upper">
+          </div>
+          
+          
+
 </body>
 </html>
