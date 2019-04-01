@@ -91,19 +91,24 @@ main()
 
 <body>
 
-        <canvas id="gl-canvas" width="128" height="256">>
+    <div class="slidecontainer" width = "100">
+        Body angle: -180  
+        <input type="range" min="-50" max="50" value="0" class="slider" id="base">
+        180
+      </div>
+      <div class="slidecontainer" width = "100">
+        Lower arm angle: -90
+        <input type="range" min="-50" max="50" value="0" class="slider" id="lower">
+        90
+      </div>
+      <div class="slidecontainer" width = "100">
+            Upper arm angle: -90
+        <input type="range" min="-50" max="50" value="0" class="slider" id="upper">
+        90
+      </div>
+        <canvas id="gl-canvas" width="256" height="512">>
             Oops ... your browser doesn't support the HTML5 canvas element
         </canvas>
-        <div class="slidecontainer" width = "100">
-            <input type="range" min="1" max="100" value="0" class="slider" id="base">
-          </div>
-          <div class="slidecontainer" width = "100">
-            <input type="range" min="1" max="100" value="0" class="slider" id="lower">
-          </div>
-          
-          <div class="slidecontainer" width = "100">
-            <input type="range" min="1" max="100" value="0" class="slider" id="upper">
-          </div>
           
           
 

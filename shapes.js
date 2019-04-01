@@ -35,9 +35,9 @@ function get_cube_vertices() {
 			vec3(-1.0,  1.0, -1.0)];
   
   var matrix = scalem(1, 1, 1);
-	// for(var i = 0; i < vertices.length; i++) {
-  //   vertices[i] = vec3(vertices[i][0] / 10, vertices[i][1] / 10, vertices[i][2] / 10);
-	// }
+	for(var i = 0; i < vertices.length; i++) {
+    vertices[i] = vec3(vertices[i][0] / 2, vertices[i][1] / 2, vertices[i][2] / 2);
+	}
 	return vertices;
 }
 
