@@ -1,3 +1,29 @@
+<!--
+	.globl sqrtd
+sqrtd:
+	movl $0, %eax   # place your code for Q3 here
+	movl $16, %esi	# number of bits
+	movl $0x8000, %r8d
+       
+loop_start:
+	cmp $0, %esi
+	je loop_end
+	dec %esi
+	xorl %r8d, %eax 
+	movl %eax, %edx
+	imull %edx, %edx
+	cmp %edi, %edx
+	ja ifGreater
+	shrl %r8d
+	jmp loop_start
+ifGreater:	
+	xorl %r8d, %eax
+	shrl %r8d
+	jmp loop_start
+loop_end:
+	ret
+-->
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -153,3 +179,4 @@ main()
 
 </body>
 </html>
+/* 
